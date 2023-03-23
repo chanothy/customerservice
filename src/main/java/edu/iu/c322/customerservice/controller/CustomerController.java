@@ -2,6 +2,7 @@ package edu.iu.c322.customerservice.controller;
 
 import edu.iu.c322.customerservice.model.Customer;
 import edu.iu.c322.customerservice.repository.CustomerRepository;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,13 +24,13 @@ public class CustomerController {
     }
 
     @PostMapping
-    public int create(@RequestBody Customer customer) {
+    public int create(@Valid @RequestBody Customer customer) {
         return repository.create(customer);
     }
 
     // PUT localhost:8080/customers/2
     @PutMapping("/{id}")
-    public void update(@RequestBody Customer customer, @PathVariable int id) {
+    public void update(@Valid @RequestBody Customer customer, @PathVariable int id) {
         repository.update(customer, id);
     }
 
