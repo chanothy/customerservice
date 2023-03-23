@@ -27,12 +27,18 @@ public class CustomerRepository {
             x.setName(customer.getName());
             x.setEmail(customer.getEmail());
         }
+        else {
+            throw new IllegalStateException("customer id is not valid");
+        }
     }
 
     public void delete(int id) {
         Customer x = getCustomerById(id);
         if (x != null) {
             customers.remove(x);
+        }
+        else {
+            throw new IllegalStateException("customer id is not valid");
         }
     }
 
