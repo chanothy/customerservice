@@ -30,7 +30,7 @@ public class CustomerController {
         return newCustomer.getId();
     }
 
-    // PUT localhost:8080/customers/2
+    // PUT localhost:8080/customers/2d
     @PutMapping("/{id}")
     public void update(@Valid @RequestBody Customer customer, @PathVariable int id) {
         customer.setId(id);
